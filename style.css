@@ -4,7 +4,21 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: black;
+    font-family: monospace;
+}
 
+p {
+    color: white;
+    
+}
+.outer-container {
+    padding: 10px;
+}
 
+.top-bar button {
+
+}
 
 
