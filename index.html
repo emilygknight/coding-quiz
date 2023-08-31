@@ -14,9 +14,9 @@
     <div class="outer-container">
 
        <!-- top bar section -->
-        <div class="top-bar">
+        <div class="top-bar" id="home">
             <button>View High Scores</button>
-            <p>Timer: 00:00</p>
+            <p class="timer-count">Timer: 01:00</p>
         </div>
 
         <!-- main section with questions/ inner div -->
@@ -25,17 +25,18 @@
 <header class="quiz-intro">
     <h1>Welcome to JavaScript Quiz!</h1>
     <p>Press Start Quiz to begin!</p>
-    <button>Start Quiz</button>
+    <button id="starting-quiz">Start Quiz</button>
 </header>
 <main>
     <section class="question-screen">
-        <h2>Question Here!</h2>
-        <ul>
-            <li><button>Answer 1</button></li>
-            <li><button>Answer 2</button></li>
-            <li><button>Answer 3</button></li>
-            <li><button>Answer 4</button></li>
+        <h2 id="questions">Question Here!</h2>
+        <ul id="answer-buttons">
+            <li><button class="button">Answer 1</button></li>
+            <li><button class="button">Answer 2</button></li>
+            <li><button class="button">Answer 3</button></li>
+            <li><button class="button">Answer 4</button></li>
         </ul>
+        <button id="next-btn">Next</button>
     </section>
     <section class="quiz-finished">
         <h2>Quiz Finished!</h2>
@@ -60,5 +61,6 @@
         </div>
     <!-- End of outer div -->
     </div>
+    <script src="./script.js"></script>
 </body>
 </html>
