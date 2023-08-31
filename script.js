@@ -6,11 +6,10 @@ question pops up and the timer begins
 3. When you are done answering all three questions, it will tell you your score 
 and keep track of the scores
 */
-var startButton = document.querySelector("starting-quiz");
-var 
-var questionEl = document.getElementById("questions");
-var answerButtons = document.getElementById("buttons");
-var nextButton = document.getElementById("next-btn");
+var startButton = document.querySelector("quiz-intro");
+var questionEl = document.querySelector("questions");
+var answerButtons = document.querySelector("buttons");
+var nextButton = document.querySelector("next-btn");
 var timerEl = document.querySelector(".timer-count");
 var timer;
 var timerCount;
@@ -62,24 +61,22 @@ function startQuiz() {
 
 function showQuestion(){
     resetState();
-    var currentQuestion = questions[currentQuestionIndex];
-    var questionNo = currentQuestionIndex + 1;
+    var currentQuestion = questions[i];
+    var questionNo = currentQuestion + 1;
     questionEl.innerHTML - questionNo + ". " + currentQuestion.answers;
     questions;
 
-    // currentQuestion.answers.forEach(answer => {
-    //     var button = document.createElement("button");
-    //     button.innerHTML = answer.text;
-    //     button.classList.add("btn");
-    //     answerButtons.appendChild(button);
-    //     if(answer.correct){
-    //         button.dataset.correct = answer.correct;
-    //     }
-    //     button.addEventListener("click", SelectAnswer);
-    // });
+    currentQuestion.answers.forEach(answer => {
+        var button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", SelectAnswer);
+    });
 }
-startQuiz();
-console.log("startQuiz")
 
 function resetState(){
     nextButton.style.display = "none";
