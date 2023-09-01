@@ -6,93 +6,52 @@ question pops up and the timer begins
 3. When you are done answering all three questions, it will tell you your score 
 and keep track of the scores
 */
-var startButton = document.querySelector("quiz-intro");
-var questionEl = document.querySelector("questions");
-var answerButtons = document.querySelector("buttons");
-var nextButton = document.querySelector("next-btn");
-var timerEl = document.querySelector(".timer-count");
-var timer;
-var timerCount;
+var questionElement = document.querySelector("#question");
+var responseElement = document.querySelector("#responses");
+// Generate your data/carousel
 var questions = [
-    {
-        question: "What is one of JavaScripts data type?",
-        answers: [
-        { text: "Boolean", correct: true},
-        { text: "Underline", correct: false},
-        { text: "Capital", correct: false},
-        { text: "Pierce", correct: false},
-        ]
-    },
-    {
-        question: "What is one of JavaScripts data type?",
-        answers: [
-        { text: "Boolean", correct: true},
-        { text: "Underline", correct: false},
-        { text: "Capital", correct: false},
-        { text: "Pierce", correct: false},
-        ]
-    },
-    {
-        question: "What is one of JavaScripts data type?",
-        answers: [
-        { text: "Boolean", correct: true},
-        { text: "Underline", correct: false},
-        { text: "Capital", correct: false},
-        { text: "Pierce", correct: false},
-        ]
-    },
-    {
-        question: "What is one of JavaScripts data type",
-        answers: [
-        { text: "Boolean", correct: true},
-        { text: "Underline", correct: false},
-        { text: "Capital", correct: false},
-        { text: "Pierce", correct: false},
-        ]
+    { question: "What is a function", responses: [ "Resuable code", "Primitive value", "None of the above" ], answer: 0 },
+    { question: "What is an array", responses: [ "List of values", "Key value pairs", "None of the above" ], answer: 2 },
+    { question: "What is a primitive value ", responses: [ "123", "1234", "None of the above" ], answer: 2 },
+    { question: "What is the abbreviation JSON", responses: [ "JASON", "Javascript notation object", "None of the above" ], answer: 1 },
+  ];
+  
+  
+  // Navigate through list of questions
+  function navigate(direction) {
+    index = index + direction;
+    // If you try to navigate 'back' from the start
+    // Go to last question
+    if (index < 0) { 
+      index = images.length - 1; 
+    
+      // If you are at the very end. 
+      // Go to the first image/question
+    } else if (index > images.length - 1) { 
+      index = 0;
     }
-]
-
-function startQuiz() {
-    score = 0;
-    nextButton.innerHTML = "Next";
-    timerCount = 60;
-    showQuestion();
-}
-
-function showQuestion(){
-    resetState();
-    var currentQuestion = questions[i];
-    var questionNo = currentQuestion + 1;
-    questionEl.innerHTML - questionNo + ". " + currentQuestion.answers;
-    questions;
-
-    currentQuestion.answers.forEach(answer => {
-        var button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButtons.appendChild(button);
-        if(answer.correct){
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", SelectAnswer);
-    });
-}
-
-function resetState(){
-    nextButton.style.display = "none";
-    while(answerButtons.firstChild){
-        answerButtons.removeChild(answerButtons.firstChild);
+   
+    // Render the question
+    renderQuestion();
+    // render the anser
+    renderAnswers();
+  }
+  
+  // renders the question
+  function renderQuestion() {
+    // Update the html with the current question
+    questionElement.textContent = questions[index].question;
+  }
+  
+  function renderAnswers() {
+    console.log("questions object",questions[index]);
+    console.log("list of responses", questions[index].responses);
+    // Clears the html by settting innerHTML to an empty string.
+    questionResponseElement.innerHTML = "";
+    for (var i = 0; i < questions[index].responses.length; i++ ) {
+      console.log(questions[index].responses[i]);
+      var li = document.createElement("li");
+      li.textContent = questions[index].responses[i];
+      questionResponseElement.appendChild(li);
     }
-}
-
-startButton.addEventListener("click", startQuiz);
-
-function startTimer() {
-    timer = setInterval(function() {
-        timerCount--;
-        timerEl.textContent = timerCount;
-        if (timerCount >= 0) {
-            clearInterval(timer);
-        }
-    })
-}
+  }

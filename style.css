@@ -48,7 +48,7 @@ button {
 }
 
 .quiz-intro, main {
-   margin-bottom: 30vh;
+   margin-bottom: 10vh;
    margin-left: 8%;
    margin-right: 8%;
    background-color: rgb(45, 45, 47);
@@ -68,7 +68,7 @@ h1, h2 {
     color: rgb(220, 220, 95);
 }
 
-main {
+/* main {
     display: block;
 }
 
@@ -86,4 +86,4 @@ li {
 
 .highscores-screen {
     display: none;
-}
+} */
