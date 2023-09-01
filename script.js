@@ -23,7 +23,11 @@ var questions = [
     { question: "What is a primitive value ", responses: [ "123", "1234", "None of the above" ], answer: 2 },
     { question: "What is the abbreviation JSON", responses: [ "JASON", "Javascript notation object", "None of the above" ], answer: 1 },
   ];
-  
+console.log(questions);
+console.log(questions[0]);
+console.log(questions[0].question);
+console.log(questions[0].responses);
+console.log(questions[0].responses[0]);
 function startTimer() {
     setInterval(function () {
         timer--;
@@ -34,7 +38,7 @@ function starQuiz() {
     currentQuestionIndex = 0;
 renderQuestion();
 }
-  
+  document
   // Navigate through list of questions
   function nextQuestion() {
    index++;
@@ -48,47 +52,26 @@ renderQuestion();
   function renderQuestion() {
     // Update the html with the current question
     questionElement.textContent = questions[index].question;
-  }
-  
-  function renderAnswers() {
-    console.log("questions object",questions[index]);
-    console.log("list of responses", questions[index].responses);
-    // Clears the html by settting innerHTML to an empty string.
-    questionResponseElement.innerHTML = "";
-    for (var i = 0; i < questions[index].responses.length; i++ ) {
-      console.log(questions[index].responses[i]);
-      var li = document.createElement("li");
-      li.textContent = questions[index].responses[i];
-      questionResponseElement.appendChild(li);
+    
+    for (var i = 0; i < 3; i++) {
+        console.log("This is i = "+ i)
+        var choice = document.querySelector("#choice" + i);
+        console.log(choice);
+        choice.textContent = questions[0].responses[i];
     }
   }
 
+
   startButton.addEventListener("click", function() {
-  startScreen.style.display = "none";
-  questionScreen.style.display = "block";
+    startScreen.style.display = "none";
+    questionScreen.style.display = "block";
+    starQuiz();
   });
 
   responseElement.addEventListener("click", function(event) {
     console.log("clickng on UL", event);
-    var selectedIndex = event.target.getAttribute("data-index");
+    for (var i = 0; i < 3; i++)
 
-    if (selectedIndex === correctIndex) {
-        console.log("selected correct answer");
-    } else {
-        console.log("selected wrong answer");
-    }
-
+console.log("hello");
   }
   );
-
-//   next.addEventListener("click", function() {
-//     for (var i = 0; i < questions[index]; i++ ) {
-//         console.log(questions[index].responses[i]);
-//         var li = document.createElement("li");
-//         li.textContent = questions[index].responses[i];
-//         questionResponseElement.appendChild(li);
-//     }
-//   }) ;
-
-//   timerEl.textContent = timer;
-starQuiz();
