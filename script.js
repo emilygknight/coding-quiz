@@ -68,10 +68,12 @@ renderQuestion();
     starQuiz();
   });
 
-  responseElement.addEventListener("click", function(event) {
-    console.log("clickng on UL", event);
-    for (var i = 0; i < 3; i++)
+  responseElement.addEventListener("click", function() {
+    for (var i = 0; i < 3; i++) {
+        var nextQuestion = document.querySelector(nextQuestion + i);
+        
+    }
 
-console.log("hello");
+console.log(nextQuestion);
   }
   );
