@@ -97,12 +97,7 @@ function endQuiz() {
     starQuiz();
   });
 
-  responseElement.addEventListener("click", function() {
-    for (var i = 0; i < 4; i++) {
-        var nextQuestion = document.querySelector("#question" + i);
+//   responseElement.addEventListener("click", function() {
+//     currentQuestionIndex++;
         
-    }
-
-console.log(nextQuestion);
-  }
-  );
+//     }
