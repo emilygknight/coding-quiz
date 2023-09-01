@@ -13,6 +13,7 @@
 - You can also keep track of your scores from highest to lowest.
 ## Credits 
 - https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+- https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 ## License 
 - MIT License 
 ## Featues
