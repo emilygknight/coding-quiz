@@ -69,8 +69,8 @@ renderQuestion();
   });
 
   responseElement.addEventListener("click", function() {
-    for (var i = 0; i < 3; i++) {
-        var nextQuestion = document.querySelector(nextQuestion + i);
+    for (var i = 0; i < 4; i++) {
+        var nextQuestion = document.querySelector("#question" + i);
         
     }
 
