@@ -23,43 +23,72 @@ var questions = [
     { question: "What is a primitive value ", responses: [ "123", "1234", "None of the above" ], answer: 2 },
     { question: "What is the abbreviation JSON", responses: [ "JASON", "Javascript notation object", "None of the above" ], answer: 1 },
   ];
-console.log(questions);
-console.log(questions[0]);
-console.log(questions[0].question);
-console.log(questions[0].responses);
-console.log(questions[0].responses[0]);
+// console.log(questions);
+// console.log(questions[0]);
+// console.log(questions[0].question);
+// console.log(questions[0].responses);
+// console.log(questions[0].responses[0]);
+
 function startTimer() {
     setInterval(function () {
         timer--;
+        timerEl.textContent = timer;
     }, 1000);
+}
+
+function updateScoe(value) {
+    if (score >= 0) {
+        score = score + value;
+    }
 }
 
 function starQuiz() {
     currentQuestionIndex = 0;
 renderQuestion();
+startTimer();
+// renderAnswers();
 }
-  document
+
+function endQuiz() {
+    quizEnd.style.dispay = 0;
+    quiz.style.display = 0;
+}
   // Navigate through list of questions
   function nextQuestion() {
-   index++;
+   if (currentQuestionIndex < currentQuestionIndex.length) {
+    currentQuestionIndex++;
     // Render the question
     renderQuestion();
     // render the anser
-    renderAnswers();
+    // renderAnswers();
+   } else {
+    endQuiz();
+   }
   }
   
   // renders the question
   function renderQuestion() {
     // Update the html with the current question
-    questionElement.textContent = questions[index].question;
+    questionElement.textContent = questions[currentQuestionIndex].question;
     
     for (var i = 0; i < 3; i++) {
-        console.log("This is i = "+ i)
+        // console.log("This is i = "+ i)
         var choice = document.querySelector("#choice" + i);
-        console.log(choice);
+        // console.log(choice);
         choice.textContent = questions[0].responses[i];
     }
   }
+
+// function renderAnswers() {
+//     responseElement.innerHTML = "";
+//     for (var i = 0; i < questions[currentQuestionIndex].responses.length; i++) {
+//         var li = document.createElement("li");
+//         li.classList.add("list-group-item");
+//         li.setAttribute("data-index", i);
+//         li.textContent = questions[currentQuestionIndex].responses[i];
+//         responseElement.appendChild(li);
+//     }
+// }
 
 
   startButton.addEventListener("click", function() {
