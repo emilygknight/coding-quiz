@@ -16,27 +16,27 @@
        <!-- top bar section -->
         <div class="top-bar">
             <button>View High Scores</button>
-            <p id="timer">Timer: 01:00</p>
+            <p>Time: <span id="timer">Timer: 01:00</span></p>
         </div>
 
         <!-- main section with questions/ inner div -->
         <div class="inner-section">
             <!-- Going to make the header disapear when you click start quiz button -->
-<header class="quiz-intro">
+<header id="intro">
     <h1>Welcome to JavaScript Quiz!</h1>
     <p>Press Start Quiz to begin!</p>
-    <button onclick="renderQuestion()">Start Quiz</button>
+    <button id="start">Start Quiz</button>
 </header>
 <main>
-    <section class="question-screen" id="question">
-        <h2>Question Here!</h2>
+    <section id="quiz">
+        <h2 id="question">Question Here!</h2>
         <ul id="responses">
             <li><button class="button">Answer 1</button></li>
             <li><button class="button">Answer 2</button></li>
             <li><button class="button">Answer 3</button></li>
             <li><button class="button">Answer 4</button></li>
         </ul>
-        <button>Next</button>
+        <button class="next">Next</button>
     </section>
     <section class="quiz-finished">
         <h2>Quiz Finished!</h2>
@@ -48,10 +48,6 @@
     <section class="highscores-screen">
         <h2>Highscores</h2>
         <ul>
-            <li>EK - 20</li>
-            <li>EK - 20</li>
-            <li>EK - 20</li> 
-            <li>EK - 20</li>
         </ul>
         <button>Go back</button>
         <button>Clear HighScores</button>
