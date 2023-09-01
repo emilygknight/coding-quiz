@@ -21,3 +21,5 @@
 - It has a button at the top that keeps track of all the scores from high to low
 - You can input you initials at the end of the quiz to keep track of your own score 
 ## Screen shot 
+- ![Image 9-1-23 at 3 58 PM](https://github.com/emilygknight/coding-quiz/assets/138501781/0c28215e-2da4-4f6f-91bb-0f2cb5b8a686)
+- ![Image 9-1-23 at 3 58 PM](https://github.com/emilygknight/coding-quiz/assets/138501781/0c28215e-2da4-4f6f-91bb-0f2cb5b8a686)
