@@ -13,12 +13,16 @@ var next = document.querySelector(".next");
 var startScreen = document.getElementById("intro");
 var questionScreen = document.getElementById("quiz");
 var timerEl = document.getElementById("timer");
+var buttonOne = document.getElementById("choice0");
+var buttonTwo = document.getElementById("choice1");
+var buttonThree = document.getElementById("choice2");
+var score = 0;
 // Generate your data/carousel
 var currentQuestionIndex = 0;
 var index = 0;
 var timer = 60;
 var questions = [
-    { question: "What is a function", responses: [ "Resuable code", "Primitive value", "None of the above" ], answer: 0 },
+    { question: "What is a function", responses: [ "Resuable code", "Primitive value", "None of the above" ], answer: "Resuable code" },
     { question: "What is an array", responses: [ "List of values", "Key value pairs", "None of the above" ], answer: 2 },
     { question: "What is a primitive value ", responses: [ "123", "1234", "None of the above" ], answer: 2 },
     { question: "What is the abbreviation JSON", responses: [ "JASON", "Javascript notation object", "None of the above" ], answer: 1 },
@@ -69,13 +73,14 @@ function endQuiz() {
   // renders the question
   function renderQuestion() {
     // Update the html with the current question
+    console.log(questions[0].question)
     questionElement.textContent = questions[currentQuestionIndex].question;
-    
+  
     for (var i = 0; i < 3; i++) {
         // console.log("This is i = "+ i)
         var choice = document.querySelector("#choice" + i);
         // console.log(choice);
-        choice.textContent = questions[0].responses[i];
+        choice.textContent = questions[currentQuestionIndex].responses[i];
     }
   }
 
@@ -89,15 +94,26 @@ function endQuiz() {
 //         responseElement.appendChild(li);
 //     }
 // }
-
+function checkAnswer() {
+  console.log(questions[currentQuestionIndex].answer);
+  console.log(this.innerHTML);
+  if (questions[currentQuestionIndex].answer === this.innerHTML){
+    console.log("correct");
+    score++;
+  } else {
+    console.log("Incorrect");
+    timer = timer - 5;
+  }
+  currentQuestionIndex++;
+  renderQuestion();
+  console.log("clicked");
+}
+buttonOne.addEventListener("click", checkAnswer);
+buttonTwo.addEventListener("click", checkAnswer);
+buttonThree.addEventListener("click", checkAnswer);
 
   startButton.addEventListener("click", function() {
     startScreen.style.display = "none";
     questionScreen.style.display = "block";
     starQuiz();
   });
-
-//   responseElement.addEventListener("click", function() {
-//     currentQuestionIndex++;
-        
-//     }
